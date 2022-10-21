@@ -1,6 +1,7 @@
 #pragma once
 
 #include "player.h"
+#include "enemy.h"
 #include "shot.h"
 
 class SceneMain
@@ -18,7 +19,7 @@ public:
 	void update();
 	// 毎フレームの描画
 	void draw();
-	
+
 private:
 	// ショットの最大数
 	static constexpr int kShotMax = 64;
@@ -30,6 +31,8 @@ private:
 	int m_hShotGraphic;
 	// プレイヤー
 	Player m_player;
+	//　敵
+	Enemy m_enemy;
 	// ショット
 	Shot m_shot[kShotMax];
 };

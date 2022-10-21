@@ -2,14 +2,12 @@
 #include "shot.h"
 
 
-Shot::Shot()
+Shot::Shot() ://コンストラクタ初期化子
+	m_handle(-1),
+	m_isExist(false),
+	m_pos(100.0f, 100.0f),
+	m_vec(8.0f,0.0f)
 {
-	m_handle = -1;
-	m_pos.x = 100.0f;
-	m_pos.y = 100.0f;
-
-	m_vec.x = 8.0f;
-	m_vec.y = 0.0f;
 }
 
 Shot::~Shot()
@@ -19,10 +17,14 @@ Shot::~Shot()
 
 void Shot::update()
 {
+	if (!m_isExist) return;
+
 	m_pos += m_vec;
 }
 // 表示
 void Shot::draw()
 {
+	if (!m_isExist) return;
+
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 }
