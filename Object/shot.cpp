@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "shot.h"
+#include "game.h"
 
 
 Shot::Shot() ://コンストラクタ初期化子
@@ -14,12 +15,20 @@ Shot::~Shot()
 {
 
 }
-
+void  Shot::start(Vec2 pos)
+{
+	m_isExist = true;
+	m_pos = pos;
+}
 void Shot::update()
 {
 	if (!m_isExist) return;
 
 	m_pos += m_vec;
+	if (m_pos.x > Game::kScreenWidth)
+	{
+		m_isExist = false;
+	}
 }
 // 表示
 void Shot::draw()

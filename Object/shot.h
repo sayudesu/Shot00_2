@@ -9,6 +9,9 @@ public:
 
 	void setHandle(int handle) { m_handle = handle; }
 
+	// ”­Ë
+	void start(Vec2 pos);
+
 	// XV
 	void update();
 	// •\¦

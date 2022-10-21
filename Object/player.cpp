@@ -2,6 +2,8 @@
 #include "game.h"
 #include "player.h"
 
+#include "SceneMain.h"
+
 namespace
 {
 	// X方向、Y方向の最大速度
@@ -62,6 +64,14 @@ void Player::update()
 	else
 	{
 		m_vec.x *= 0.9f;
+	}
+	//キー入力処理
+	if (padState & PAD_INPUT_1)
+	{
+		if (m_pMain)
+		{
+			m_pMain->creatShot(m_pos);
+		}
 	}
 	m_pos += m_vec;
 }

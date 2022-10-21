@@ -66,3 +66,16 @@ void SceneMain::draw()
 		shot.draw();
 	}
 }
+
+bool SceneMain::creatShot(Vec2 pos)
+{
+	for (auto & shot : m_shot)
+	{
+		if (!shot.isExist())
+		{
+			shot.start(pos);
+			return true;
+		}
+	}
+	return false;
+}
