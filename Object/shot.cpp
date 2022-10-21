@@ -41,5 +41,29 @@ void Shot::draw()
 
 bool Shot::isCol(Enemy& enemy)
 {
-	return false;
+	float shotWidth = 0;
+	float shotHeight = 0;
+	GetGraphSizeF(m_handle, &shotWidth, &shotHeight);
+
+	//¶ã‚Ì‚Ç‚±‚©
+	float shotLeft = m_pos.x;
+	float shotTop  = m_pos.y;
+	//‰E‰º‚Ì‚Ç‚±‚©
+	float shotRight  = m_pos.x + shotWidth;
+	float shotBottom = m_pos.y + shotHeight;
+
+	//“G¶ã‚Ì‚Ç‚±‚©
+	float enemyLeft   = enemy.getPos().x;
+	float enemyTop    = enemy.getPos().y;
+	//“G‰E‰º‚Ì‚Ç‚±‚©
+	float enemyRight  = enemy.getPos().x + enemy.getColWidth();
+	float enemyBottom = enemy.getPos().y + enemy.getColHeight();
+
+	if (enemyLeft > shotRight) return false;
+	if (enemyTop > shotBottom) return false;
+	if (enemyRight > shotLeft) return false;
+	if (enemyBottom > shotTop) return false;
+
+	return true;
 }
+
