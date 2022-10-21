@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "shot.h"
 #include "game.h"
+#include "enemy.h"
 
 
 Shot::Shot() ://コンストラクタ初期化子
@@ -36,4 +37,9 @@ void Shot::draw()
 	if (!m_isExist) return;
 
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
+}
+
+bool Shot::isCol(Enemy& enemy)
+{
+	return false;
 }
